@@ -30,7 +30,7 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 <body>
    <div id="map" style="height: 650px;"></div>
    <script>
-       var map = L.map('map').setView([35.151511, -88.322072], 13);
+       var map = L.map('map').setView([35.151511, -88.322072], 10);
        L.esri.basemapLayer('Topographic').addTo(map);
 	   
 	   const visitor_icon = L.icon({
@@ -53,7 +53,6 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 			radius:50
 		}).addTo(map);	
 
-		
 		// NE point  
 		var NE_corner = L.circle([35.166508, -88.29828], {
 			color: 'black',
@@ -61,6 +60,31 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 			fillOpacity: 0.5,
 			radius:50
 		}).addTo(map);	
+		
+		// SE point 
+		var SE_corner = L.circle([35.112716, -88.29828], {
+			color: 'black',
+			fillColor: 'white',
+			fillOpacity: 0.5,
+			radius:50
+		}).addTo(map);	
+		
+		// SW point 
+		var SW_corner = L.circle([35.112716, -88.368908], {
+			color: 'black',
+			fillColor: 'white',
+			fillOpacity: 0.5,
+			radius:50
+		}).addTo(map);	
+		
+
+		var polygon = L.polygon([
+			[35.166508, -88.368908],
+			[35.166508, -88.29828],	
+			[35.112716, -88.29828],
+			[35.112716, -88.368908]
+		]).addTo(map);		
+
 
 	var googlelink = "";
 	var coords = "";
