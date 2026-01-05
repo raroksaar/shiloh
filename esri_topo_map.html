@@ -45,6 +45,23 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 	VisitorCentermarker = L.marker([35.151511, -88.322072],{icon: visitor_icon}).addTo(map); 
 		VisitorCentermarker.bindPopup('Visitor Center');
 
+		// NW point 
+		var NW_corner = L.circle([35.166508, -88.368908], {
+			color: 'black',
+			fillColor: 'white',
+			fillOpacity: 0.5,
+			radius:50
+		}).addTo(map);	
+
+		
+		// NE point  
+		var NE_corner = L.circle([35.166508, -88.29828], {
+			color: 'black',
+			fillColor: 'white',
+			fillOpacity: 0.5,
+			radius:50
+		}).addTo(map);	
+
 	var googlelink = "";
 	var coords = "";
 	var link ="";
