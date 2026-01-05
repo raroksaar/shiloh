@@ -103,6 +103,16 @@ VisitorCentermarker = L.marker([1200, 2700], {icon: greenIcon}).addTo(map); // C
   VisitorCentermarker.bindPopup(' <a href="https://www.nps.gov/shil/index.htm">NPS page</a>');
 	
 
+var parks = L.esri.featureLayer({
+url: 'https://services.arcgis.com/.../FeatureServer/0',
+style: function () {
+return { color: '#70ca49', weight: 2 };
+}
+}).addTo(map);
+
+parks.bindPopup(function (layer) {
+return 'Park Name: ' + layer.feature.properties.NAME;
+});
 </script>
 
 
