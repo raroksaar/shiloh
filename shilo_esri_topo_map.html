@@ -45,8 +45,6 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 	VisitorCentermarker = L.marker([35.151511, -88.322072],{icon: visitor_icon}).addTo(map); 
 		VisitorCentermarker.bindPopup('Visitor Center');
 
-		
-
 		var polygon = L.polygon([
 			[35.166508, -88.368908],
 			[35.166508, -88.29828],	
@@ -56,6 +54,7 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 
  
 	    GettysburgVCmarker = L.marker([39.81169, -77.22599],{icon: visitor_icon}).addTo(map); 
+		//36.487282, -87.83948336.487282, -87.839483
 		
 		// Gettysburg rectangle
 		var polygon = L.polygon([
@@ -64,6 +63,13 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 			[39.757233, -77.157304],
 			[39.757233, -77.264744]
 		]).addTo(map);
+		
+		FtDonaldsonmarker = L.marker([36.485720, -87.847979],{icon: visitor_icon}).addTo(map);
+		FtDonaldsonmarker.bindPopup('Fort Donaldson');
+		
+
+
+		
 		
 	var googlelink = "";
 	var coords = "";
