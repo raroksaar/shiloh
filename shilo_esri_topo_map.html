@@ -2,9 +2,9 @@
 <html>
 <head>
 <H2>
-   <title>Shiloh topographic map</title>
+   <title>Area topographic map</title>
    	<div style="text-align: center;">
-	Shiloh area topographic map <br>
+	Area topographic map <br>
 </H2>
 <H3>
    	<div style="text-align: center;">
@@ -30,7 +30,30 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 <body>
    <div id="map" style="height: 650px;"></div>
    <script>
-       var map = L.map('map').setView([35.151511, -88.322072], 10);
+   const queryString = window.location.search;
+   const urlParams = new URLSearchParams(queryString);
+   const place = urlParams.get('place'); // returns null if not found
+   //console.log("hello");
+   //console.log(place);
+
+
+//var map = L.map('map').setView([35.151511, -88.322072], 10);   
+   if (place === "shiloh") {
+		console.log("shiloh");
+		//const coords = "[35.151511, -88.322072]"
+		var map = L.map('map').setView([35.151511, -88.322072], 10);
+	} else if (place === "gettysburg") {
+		console.log("gettysburg");
+		//const coords = "[39.81169, -77.22599]"
+		var map = L.map('map').setView([39.81169, -77.22599], 10);
+	} else {
+		console.log("Good evening");
+		//default to Gettysburg
+		var map = L.map('map').setView([39.81169, -77.22599], 10);  
+	}
+   
+       //var map = L.map('map').setView([35.151511, -88.322072], 10);
+	   //var map = L.map('map').setView(coords, 10);
        L.esri.basemapLayer('Topographic').addTo(map);
 	   
 	   const visitor_icon = L.icon({
@@ -43,7 +66,7 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 	const popup = L.popup();
 
 	VisitorCentermarker = L.marker([35.151511, -88.322072],{icon: visitor_icon}).addTo(map); 
-		VisitorCentermarker.bindPopup('Visitor Center');
+		VisitorCentermarker.bindPopup('Shiloh Visitor Center');
 
 		var polygon = L.polygon([
 			[35.166508, -88.368908],
@@ -65,7 +88,7 @@ Click anywhere on the map to get links to Google, Bing and OpenStreetMap maps <b
 		]).addTo(map);
 		
 		FtDonaldsonmarker = L.marker([36.485720, -87.847979],{icon: visitor_icon}).addTo(map);
-		FtDonaldsonmarker.bindPopup('Fort Donaldson');
+		FtDonaldsonmarker.bindPopup('Fort Donelson');
 		// VisitorCentermarker.bindPopup('<a href="https://library.nps.gov/gettysburg">Gettysburg visitor brochure</a>');
 
 
